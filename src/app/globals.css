@@ -1,0 +1,78 @@
+@import "tailwindcss";
+@import "@fontsource-variable/vazirmatn";
+
+:root {
+  --background: #f4f7f7;
+  --foreground: #17212b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Vazirmatn Variable", Vazirmatn, Tahoma, sans-serif;
+  font-feature-settings: "ss01";
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+select {
+  cursor: pointer;
+}
+
+::selection {
+  background: #99f6e4;
+  color: #134e4a;
+}
+
+@layer components {
+  .form-label {
+    @apply mb-2 block text-sm font-bold text-slate-800;
+  }
+
+  .form-input {
+    @apply h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm text-slate-900 outline-none transition duration-200 placeholder:text-slate-400 hover:border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400;
+  }
+
+  .form-textarea {
+    @apply min-h-28 w-full resize-y rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm leading-7 text-slate-900 outline-none transition duration-200 placeholder:text-slate-400 hover:border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10;
+  }
+
+  .form-error {
+    @apply mt-1.5 flex items-center gap-1 text-xs font-medium text-rose-600;
+  }
+
+  .form-input-error {
+    @apply border-rose-300 bg-rose-50/40 focus:border-rose-400 focus:ring-rose-500/10;
+  }
+
+  .form-input {
+    &::-webkit-calendar-picker-indicator {
+      display: none;
+    }
+  }
+
+  .primary-button {
+    @apply inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-teal-600 px-6 text-sm font-bold text-white shadow-lg shadow-teal-600/20 transition duration-200 hover:bg-teal-700 hover:shadow-teal-700/25 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-teal-500/25 disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none;
+  }
+
+  .secondary-button {
+    @apply inline-flex h-12 items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-6 text-sm font-bold text-slate-600 transition duration-200 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-slate-200;
+  }
+}
